@@ -123,7 +123,7 @@
           data-aos="zoom-in"
           data-aos-delay="250"
         >
-          <div class="col-xl-2 col-md-4">
+          <!-- <div class="col-xl-2 col-md-4">
             <div class="icon-box">
               <i class="ri-store-line"></i>
               <h3><a href="">Lorem Ipsum</a></h3>
@@ -154,7 +154,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
     <!-- End Hero -->
 
@@ -212,7 +212,7 @@
       <!-- End About Section -->
 
       <!-- ======= Clients Section ======= -->
-      <section id="clients" class="clients">
+      <!-- <section id="clients" class="clients">
         <div class="container" data-aos="zoom-in">
           <div class="clients-slider swiper">
             <div class="swiper-wrapper align-items-center">
@@ -276,7 +276,7 @@
             <div class="swiper-pagination"></div>
           </div>
         </div>
-      </section>
+      </section> -->
       <!-- End Clients Section -->
 
       <!-- ======= Features Section ======= -->
@@ -1047,7 +1047,7 @@
             <p>Contact Us</p>
           </div>
 
-          <div>
+          <!-- <div>
             <iframe
               style="border: 0; width: 100%; height: 270px"
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
@@ -1079,50 +1079,22 @@
               </div>
             </div>
 
-            <div class="col-lg-8 mt-5 mt-lg-0">
-              <form
-                action="https://api.whatsapp.com/send"
-                method="get"
-                target="_blank"
-              >
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <label for="name">Nama</label>
-                    <input
-                      type="text"
-                      name="name"
-                      class="form-control"
-                      id="name"
-                      placeholder="Your Name"
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="form-group mt-3">
-                  <label for="message">Pesan</label>
-                  <textarea
-                    class="form-control"
-                    name="message"
-                    rows="5"
-                    placeholder="Pesan"
-                    required
-                  ></textarea>
-                </div>
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">
-                    Your message has been sent. Thank you!
-                  </div>
-                </div>
-                <div class="text-center">
-                  <input type="hidden" name="phone" value="6287781123101" />
-                  <input type="hidden" name="text" value="" />
-                  <button type="submit" name="submit" class="btn btn-primary">
-                    Kirim Pesan
-                  </button>
-                </div>
+            <div class="col-lg-8 mt-5 mt-lg-0"> -->
+              <form>
+                <select id="statusBarang">
+                  <option enable-transitions value="ready1">Barang 1 Masih Tersedia</option>
+                  <option enable-transitions value="habis">Barang Sudah Habis</option>
+                  <option enable-transitions value="ready2">Barang 2 Masih Tersedia</option>
+                  <option enable-transitions value="ready3">Barang 3 Masih Tersedia</option>
+                  <option enable-transitions value="ready4">Barang 4 Masih Tersedia</option>
+                  <option enable-transitions value="ready5">Barang 5 Masih Tersedia</option>
+                  <option enable-transitions value="ready6">Barang 6 Masih Tersedia</option>
+                </select>
+                
+                <!-- Tombol untuk mengirim pesan -->
+                <button type="button" class="btn btn-success" onclick="sendMessage()">Kirim Pesan</button>
               </form>
+              
             </div>
           </div>
         </div>
@@ -1261,5 +1233,48 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+      function sendMessage() {
+        // Nomor WhatsApp penerima
+        var phoneNumber = "+6287781123101";
+    
+        // Mengambil status barang dari input pengguna
+        var status = document.getElementById("statusBarang").value;
+    
+        // Pesan yang akan dikirim berdasarkan status barang
+        var message = "";
+    
+        if (status === "ready1") {
+          message = "Min, apakah barang 1 masih tersedia?";
+        } else if (status === "habis") {
+          message = "Min, apakah barang sudah habis?";
+        } else if (status === "ready2") {
+          message = "Min, apakah barang 2 masih ada";
+        }
+        else if (status === "ready3") {
+          message = "Min, apakah barang 3 masih ada";
+        }
+        else if (status === "ready4") {
+          message = "Min, apakah barang 4 masih ada";
+        }
+        else if (status === "ready5") {
+          message = "Min, apakah barang 5 masih ada";
+        }
+        else if (status === "ready6") {
+          message = "Min, apakah barang 6 masih ada";
+        }
+         else {
+          message = "Min, apakah barang tersedia?";
+        }
+    
+        // Membentuk URL untuk meluncurkan WhatsApp dengan pesan tertentu
+        var url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+    
+        // Membuka URL dalam tab atau jendela baru
+        window.open(url);
+      }
+    </script>
+    
+    <!-- Form untuk memilih status barang -->
   </body>
 </html>
