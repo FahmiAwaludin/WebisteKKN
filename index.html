@@ -956,12 +956,15 @@
                     alt=""
                   />
                   <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href="https://www.instagram.com/riski.japar" target="_blank">
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                    <a href="#">
+                      <i class="bi bi-whatsapp" onclick="sendPesan()"></i>
+                    </a>
+                    <a href="https://www.instagram.com/M1ftah_fauz1" target="_blank">
                       <i class="bi bi-instagram"></i>
                     </a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    
                   </div>
                 </div>
                 <div class="member-info">
@@ -1278,5 +1281,23 @@
     </script>
     
     <!-- Form untuk memilih status barang -->
+
+
+    <script>
+      function sendPesan() {
+        // Nomor WhatsApp penerima
+        var phoneNumber = "+6287781123101";
+    
+        // Pesan yang akan dikirim
+        var message = "Hai";
+    
+        // Membentuk URL WhatsApp dengan nomor dan pesan
+        var url = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(phoneNumber) + "&text=" + encodeURIComponent(message);
+    
+        // Membuka URL WhatsApp dalam tab atau jendela baru
+        var win = window.open(url);
+    
+      }
+    </script>
   </body>
 </html>
